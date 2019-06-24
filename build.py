@@ -4,7 +4,8 @@
 from cpt.packager import ConanMultiPackager
 
 if __name__ == "__main__":
-    remotes = [("https://api.bintray.com/conan/bincrafters/public-conan", "yes", "bincrafters"),
+    remotes = [("https://api.bintray.com/conan/appimage-conan-community/public-conan", "yes", "appimage"),
+               ("https://api.bintray.com/conan/bincrafters/public-conan", "yes", "bincrafters"),
                ("https://api.bintray.com/conan/conan-community/conan", "yes", "conan-community")]
 
     builder = ConanMultiPackager(build_policy="outdated", remotes=remotes, build_types=["Release"], archs=["x86_64"])
