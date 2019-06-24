@@ -1,0 +1,33 @@
+env:
+  global:
+    - CONAN_REFERENCE: "AppImageUpdaterBridge/1.0.4"
+    - CONAN_USERNAME: "appimage-conan-community"
+    - CONAN_LOGIN_USERNAME: "azubieta"
+    - CONAN_CHANNEL: "stable"
+    - CONAN_UPLOAD: "https://api.bintray.com/conan/appimage-conan-community/public-conan"
+
+linux: &linux
+  os: linux
+  dist: xenial
+  language: python
+  python: "3.7"
+  services:
+    - docker
+
+matrix:
+  include:
+
+    - <<: *linux
+      env: CONAN_GCC_VERSIONS=4.8 CONAN_DOCKER_IMAGE=conanio/gcc48
+
+    - <<: *linux
+      env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7
+
+
+install:
+  - chmod +x .travis/install.sh
+  - ./.travis/install.sh
+
+script:
+  - chmod +x .travis/run.sh
+  - ./.travis/run.sh
