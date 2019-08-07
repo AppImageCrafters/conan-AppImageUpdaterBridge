@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class AppImageUpdaterBridgeConan(ConanFile):
     name = "AppImageUpdaterBridge"
-    version = "1.0.4"
+    version = "1.1.2"
     license = "MIT"
     author = "Alexis Lopez Zubieta contact@azubieta.net"
     url = "https://github.com/antony-jr/AppImageUpdaterBridge/issues"

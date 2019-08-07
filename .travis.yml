@@ -1,6 +1,6 @@
 env:
   global:
-    - CONAN_REFERENCE: "AppImageUpdaterBridge/1.0.4"
+    - CONAN_REFERENCE: "AppImageUpdaterBridge/1.1.2"
     - CONAN_USERNAME: "appimage-conan-community"
     - CONAN_LOGIN_USERNAME: "azubieta"
     - CONAN_CHANNEL: "stable"
