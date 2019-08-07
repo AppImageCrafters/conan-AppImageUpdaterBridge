@@ -31,7 +31,6 @@ class AppImageUpdaterBridgeConan(ConanFile):
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
 
-        tools.replace_in_file("AppImageUpdaterBridge/AppImageUpdaterBridge", 'include/', '')
         self.copy("AppImageUpdaterBridge", dst="include", src="AppImageUpdaterBridge", keep_path=False)
         self.copy("appimageupdaterbridge.hpp", dst="include", src="AppImageUpdaterBridge/include", keep_path=False)
         self.copy("appimagedeltarevisioner.hpp", dst="include", src="AppImageUpdaterBridge/include", keep_path=False)
@@ -39,7 +38,6 @@ class AppImageUpdaterBridgeConan(ConanFile):
                   keep_path=False)
 
         if not self.options["NO_GUI"]:
-            tools.replace_in_file("AppImageUpdaterBridge/AppImageUpdaterDialog", 'include/', '')
             self.copy("AppImageUpdaterDialog", dst="include", src="AppImageUpdaterBridge", keep_path=False)
             self.copy("appimageupdaterdialog.hpp", dst="include", src="AppImageUpdaterBridge/include", keep_path=False)
 
