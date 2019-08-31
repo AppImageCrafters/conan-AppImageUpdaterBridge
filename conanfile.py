@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class AppImageUpdaterBridgeConan(ConanFile):
     name = "AppImageUpdaterBridge"
-    version = "1.1.2"
+    version = "1.1.3"
     license = "MIT"
     author = "Alexis Lopez Zubieta contact@azubieta.net"
     url = "https://github.com/antony-jr/AppImageUpdaterBridge/issues"
@@ -26,20 +26,9 @@ class AppImageUpdaterBridgeConan(ConanFile):
         cmake.definitions["LOGGING_DISABLED"] = self.options["LOGGING_DISABLED"]
         cmake.configure(source_folder="AppImageUpdaterBridge")
         cmake.build()
-
-    def package(self):
-        self.copy("*.so", dst="lib", keep_path=False)
-        self.copy("*.a", dst="lib", keep_path=False)
-
-        self.copy("AppImageUpdaterBridge", dst="include", src="AppImageUpdaterBridge", keep_path=False)
-        self.copy("appimageupdaterbridge.hpp", dst="include", src="AppImageUpdaterBridge/include", keep_path=False)
-        self.copy("appimagedeltarevisioner.hpp", dst="include", src="AppImageUpdaterBridge/include", keep_path=False)
-        self.copy("appimageupdaterbridge_enums.hpp", dst="include", src="AppImageUpdaterBridge/include",
-                  keep_path=False)
-
-        if not self.options["NO_GUI"]:
-            self.copy("AppImageUpdaterDialog", dst="include", src="AppImageUpdaterBridge", keep_path=False)
-            self.copy("appimageupdaterdialog.hpp", dst="include", src="AppImageUpdaterBridge/include", keep_path=False)
+        cmake.install()
 
     def package_info(self):
+        self.cpp_info.includedirs = ["include/AppImageUpdaterBridge"]
         self.cpp_info.libs = ["AppImageUpdaterBridge"]
+        self.cpp_info.builddirs = ["lib/cmake"]
