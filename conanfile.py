@@ -3,8 +3,8 @@ from conans import ConanFile, CMake, tools
 
 class AppImageUpdaterBridgeConan(ConanFile):
     name = "AppImageUpdaterBridge"
-    version = "1.1.3"
-    license = "MIT"
+    version = "1.1.6"
+    license = "BSD-3-Clause"
     author = "Alexis Lopez Zubieta contact@azubieta.net"
     url = "https://github.com/antony-jr/AppImageUpdaterBridge/issues"
     description = "Qt5 library for updating AppImages"
